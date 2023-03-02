@@ -32,7 +32,7 @@ public class DatabaseManager {
     }
 
     public void createAccount(String prenom, String nom, String email, String mdp, String cmdp, String isMedecin, final VolleyResponseListener listener) {
-        String url = "http://10.0.2.2/ProjetAndroid/actions/createAccount.php";
+        String url = "https://helderalves.fr/api/actions/createAccount.php";
 
         Map<String, String> params = new HashMap<>();
         params.put("prenom", prenom);
@@ -59,7 +59,7 @@ public class DatabaseManager {
     }
 
     public void connectUser(String email, String mdp, final VolleyResponseListener listener) {
-        String url = "http://10.0.2.2/ProjetAndroid/actions/connectUser.php";
+        String url = "https://helderalves.fr/api/actions/connectUser.php";
 
         Map<String, String> params = new HashMap<>();
         params.put("email", email);
