@@ -35,6 +35,17 @@ public class SessionManager {
         editor.putString(IS_MEDECIN, isMedecin);
         editor.commit();
     }
+
+    public void modifyUser(String nomVariable, String valeur) {
+        switch (nomVariable) {
+            case "email":
+                editor.putString(EMAIL, valeur);
+                editor.commit();
+                break;
+            case "isMedecin":
+
+        }
+    }
     public void logout() {
         editor.clear().commit();
     }

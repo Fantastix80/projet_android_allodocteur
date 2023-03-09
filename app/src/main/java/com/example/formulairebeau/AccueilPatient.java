@@ -2,15 +2,25 @@ package com.example.formulairebeau;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ClipData;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
+
+import com.google.android.material.bottomnavigation.BottomNavigationItemView;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class AccueilPatient extends AppCompatActivity {
 
     private SessionManager sessionManager;
     private Button btnLogout;
+
+    private TextView test;
+    private BottomNavigationView navbar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +30,12 @@ public class AccueilPatient extends AppCompatActivity {
         sessionManager = new SessionManager(this);
 
         btnLogout = findViewById(R.id.btnLogout);
+        test = findViewById(R.id.id2);
+        navbar = findViewById(R.id.bottomNavigationView);
+
+        sessionManager.modifyUser("email", "test123");
+        test.setText(sessionManager.getEmail());
+
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -29,5 +45,10 @@ public class AccueilPatient extends AppCompatActivity {
                 finish();
             }
         });
+
+        BottomNavigationView.OnNavigationItemSelectedListener
+
+
+
     }
 }

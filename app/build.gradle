@@ -39,5 +39,9 @@ dependencies {
 
     implementation 'com.android.volley:volley:1.2.1' // Permet de gérer les appels à l'API
     implementation 'com.google.code.gson:gson:2.8.7'
-    implementation 'androidx.cardview:cardview:1.0.0' // Permet d'utiliser la CardView dans le xml
+    implementation 'androidx.cardview:cardview:1.0.0' // Permet d'utiliser la CardView dans le xml*
+
+    //arrondir les images
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+
 }
