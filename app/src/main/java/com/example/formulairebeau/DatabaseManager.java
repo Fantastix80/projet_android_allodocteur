@@ -80,4 +80,24 @@ public class DatabaseManager {
 
         queue.add(jsonObjectRequest);
     }
+
+    public void updateUser(Map<String, String> params, final VolleyResponseListener listener) {
+        String url = "https://helderalves.fr/api/actions/updateUser.php";
+
+        JSONObject parameters = new JSONObject(params);
+
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, parameters, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                listener.onResponse(response);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                listener.onError(error.toString());
+            }
+        });
+
+        queue.add(jsonObjectRequest);
+    }
 }
