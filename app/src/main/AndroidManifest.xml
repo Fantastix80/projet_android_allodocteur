@@ -17,7 +17,7 @@
         android:theme="@style/Theme.FormulaireBeau"
         tools:targetApi="31">
         <activity
-            android:name=".prendreRDV"
+            android:name=".RechercheMedecin"
             android:exported="false" />
         <activity
             android:name=".AccueilPatient"

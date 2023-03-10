@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import org.json.JSONObject;
 
@@ -30,35 +31,22 @@ public class MainActivity extends AppCompatActivity {
         // On définie les variables avec les View
         btnInscription = findViewById(R.id.btnInscription);
         btnConnexion = findViewById(R.id.btnConnexion);
-
-        //on définie notre listener qui va s'activer lorsque l'api aura répondu à notre requête
-        DatabaseManager.VolleyResponseListener listenerMainActivity = new DatabaseManager.VolleyResponseListener() {
-            @Override
-            public void onError(String message) {
-
-            }
-            @Override
-            public void onResponse(JSONObject response) {
-
-            }
-        };
+        databaseManager = new DatabaseManager(getApplicationContext());
 
         //On vient vérifier si l'utilisateur possède une session afin d'éviter qu'il ne se reconnecte
         sessionManager = new SessionManager(this);
         if (sessionManager.isLogged()) {
+            //On génère la date et l'heure actuelle (date et heure du système)
             SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
             Date date = new Date();
 
-            //Faire un appel à l'API pour mettre à jour la date de dernière connexion
-            Map<String, String> params = new HashMap<>();
-            params.put("table", "utilisateur");
-            params.put("email", sessionManager.getEmail());
-            params.put("dateDerniereConnexion", formatter.format(date));
+            //On vient appeler cette méthode qui va ensuite faire un appel à l'API afin de modifier la date de dernière connexion
+            databaseManager.updateLastConnectionDate(sessionManager.getEmail(), formatter.format(date));
 
-            databaseManager.updateUser(params, listenerMainActivity);
-
+            //On vient actualiser la session on y mettant la nouvelle date de dernière connexion
             sessionManager.modifyUser("dateDerniereConnexion", formatter.format(date));
 
+            //Cette condition permet de renvoyer l'utilisateur sur l'accueil médecin ou patient selon se qu'il est
             if (Objects.equals(sessionManager.getIsMedecin(), "1")) {
                 Intent accueilMedecin = new Intent(this, AccueilMedecin.class);
                 startActivity(accueilMedecin);
