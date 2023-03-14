@@ -11,4 +11,15 @@
         <item>0</item>
         <item>1</item>
     </string-array>
+
+    <string-array name="liste_choix_recherche">
+        <item>Médecin</item>
+        <item>Spécialité</item>
+        <item>Ville</item>
+    </string-array>
+    <string-array name="liste_choix_recherche_valeur">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
 </resources>

@@ -69,6 +69,10 @@ public class FormulaireInscription extends AppCompatActivity {
                 String error = "";
                 String isMedecin;
                 String email;
+                String nom;
+                String prenom;
+                String dateCreation;
+                String dateDerniereConnexion;
 
                 try {
                     success = response.getString("success");
@@ -76,7 +80,11 @@ public class FormulaireInscription extends AppCompatActivity {
                     if (success.equals("true")) {
                         isMedecin = response.getString("isMedecin");
                         email = response.getString("email");
-                        sessionManager.insertUser(email, isMedecin);
+                        nom = response.getString("nom");
+                        prenom = response.getString("prenom");
+                        dateCreation = response.getString("dateCreation");
+                        dateDerniereConnexion = response.getString("dateDerniereConnexion");
+                        sessionManager.insertUser(email, "", nom, prenom, "", isMedecin, "", "", "", dateCreation, dateDerniereConnexion);
 
                         if (isMedecin.equals("1")) {
                             Intent accueilMedecin = new Intent(getApplicationContext(), AccueilMedecin.class);

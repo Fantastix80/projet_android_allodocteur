@@ -80,4 +80,46 @@ public class DatabaseManager {
 
         queue.add(jsonObjectRequest);
     }
+
+    public void updateLastConnectionDate(String email, String dateDerniereConnexion) {
+        String url = "https://helderalves.fr/api/actions/updateLastConnectionDate.php";
+
+        Map<String, String> params = new HashMap<>();
+        params.put("email", email);
+        params.put("dateDerniereConnexion", dateDerniereConnexion);
+        JSONObject parameters = new JSONObject(params);
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, parameters, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });
+
+        queue.add(jsonObjectRequest);
+    }
+
+    public void getAllMedecin(final VolleyResponseListener listener) {
+        String url = "https://helderalves.fr/api/actions/getAllMedecin.php";
+
+        Map<String, String> params = new HashMap<>();
+        JSONObject parameters = new JSONObject(params);
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, parameters, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                listener.onResponse(response);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                listener.onError(error.toString());
+            }
+        });
+
+        queue.add(jsonObjectRequest);
+    }
 }
