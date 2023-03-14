@@ -66,9 +66,11 @@ public class FormulaireConnexion extends AppCompatActivity {
                 String nom;
                 String prenom;
                 String dateNaissance;
+                String telephone;
                 String adresse;
                 String codePostal;
                 String ville;
+                String imageProfil;
                 String dateCreation;
                 String dateDerniereConnexion;
 
@@ -83,12 +85,14 @@ public class FormulaireConnexion extends AppCompatActivity {
                         nom = response.getString("nom");
                         prenom = response.getString("prenom");
                         dateNaissance = response.getString("dateNaissance");
+                        telephone = response.getString("telephone");
                         adresse = response.getString("adresse");
                         codePostal = response.getString("codePostal");
                         ville = response.getString("ville");
+                        imageProfil = response.getString("imageProfil");
                         dateCreation = response.getString("dateCreation");
                         dateDerniereConnexion = response.getString("dateDerniereConnexion");
-                        sessionManager.insertUser(email, sexe, nom, prenom, dateNaissance, isMedecin, adresse, codePostal, ville, dateCreation, dateDerniereConnexion);
+                        sessionManager.insertUser(email, sexe, nom, prenom, dateNaissance, isMedecin, telephone, adresse, codePostal, ville, imageProfil, dateCreation, dateDerniereConnexion);
 
                         if (isMedecin.equals("1")) {
                             Intent accueilMedecin = new Intent(getApplicationContext(), AccueilMedecin.class);

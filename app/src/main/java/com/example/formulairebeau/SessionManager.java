@@ -19,9 +19,11 @@ public class SessionManager {
     private final static String PRENOM = "prenom";
     private final static String DATE_NAISSANCE = "dateNaissance";
     private final static String IS_MEDECIN = "isMedecin";
+    private final static String TELEPHONE = "telephone";
     private final static String ADRESSE = "adresse";
     private final static String CODE_POSTAL = "codePostal";
     private final static String VILLE = "ville";
+    private final static String IMAGE_PROFIL = "imageProfil";
     private final static String DATE_CREATION = "dateCreation";
     private final static String DATE_DERNIERE_CONNEXION = "dateDerniereConnexion";
     private Context context;
@@ -53,6 +55,9 @@ public class SessionManager {
     public String getDateNaissance() {
         return prefs.getString(DATE_NAISSANCE, "");
     }
+    public String getTelephone() {
+        return prefs.getString(TELEPHONE, "");
+    }
     public String getAdresse() {
         return prefs.getString(ADRESSE, "");
     }
@@ -62,13 +67,16 @@ public class SessionManager {
     public String getVille() {
         return prefs.getString(VILLE, "");
     }
+    public String getImageProfil() {
+        return prefs.getString(IMAGE_PROFIL, "");
+    }
     public String getDateCreation() {
         return prefs.getString(DATE_CREATION, "");
     }
     public String getDateDerniereConnexion() {
         return prefs.getString(DATE_DERNIERE_CONNEXION, "");
     }
-    public void insertUser(String email, String sexe, String nom, String prenom, String dateNaissance, String isMedecin, String adresse, String codePostal, String ville, String dateCreation, String dateDerniereConnexion) {
+    public void insertUser(String email, String sexe, String nom, String prenom, String dateNaissance, String isMedecin, String telephone, String adresse, String codePostal, String ville, String imageProfil, String dateCreation, String dateDerniereConnexion) {
         editor.putBoolean(IS_LOGGED, true);
         editor.putString(EMAIL, email);
         editor.putString(SEXE, sexe);
@@ -76,9 +84,11 @@ public class SessionManager {
         editor.putString(PRENOM, prenom);
         editor.putString(DATE_NAISSANCE, dateNaissance);
         editor.putString(IS_MEDECIN, isMedecin);
+        editor.putString(TELEPHONE, telephone);
         editor.putString(ADRESSE, adresse);
         editor.putString(CODE_POSTAL, codePostal);
         editor.putString(VILLE, ville);
+        editor.putString(IMAGE_PROFIL, imageProfil);
         editor.putString(DATE_CREATION, dateCreation);
         editor.putString(DATE_DERNIERE_CONNEXION, dateDerniereConnexion);
         editor.commit();
@@ -110,6 +120,10 @@ public class SessionManager {
                 editor.putString(IS_MEDECIN, valeur);
                 editor.commit();
                 break;
+            case "telephone":
+                editor.putString(TELEPHONE, valeur);
+                editor.commit();
+                break;
             case "adresse":
                 editor.putString(ADRESSE, valeur);
                 editor.commit();
@@ -120,6 +134,10 @@ public class SessionManager {
                 break;
             case "ville":
                 editor.putString(VILLE, valeur);
+                editor.commit();
+                break;
+            case "imageProfil":
+                editor.putString(IMAGE_PROFIL, valeur);
                 editor.commit();
                 break;
             case "dateDerniereConnexion":

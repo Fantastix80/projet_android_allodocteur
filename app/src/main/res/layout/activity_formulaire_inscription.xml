@@ -200,7 +200,7 @@
                 android:paddingLeft="26dp"
                 android:paddingRight="26dp"
                 android:backgroundTint="#3ADC91"
-                android:background="@drawable/rectangleradius"
+                android:background="@drawable/rectangleradiusrounded"
                 android:textColor="@color/white"
                 android:layout_marginTop="15sp">
             </androidx.appcompat.widget.AppCompatButton>

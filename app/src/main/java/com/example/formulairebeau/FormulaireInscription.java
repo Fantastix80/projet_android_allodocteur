@@ -84,7 +84,7 @@ public class FormulaireInscription extends AppCompatActivity {
                         prenom = response.getString("prenom");
                         dateCreation = response.getString("dateCreation");
                         dateDerniereConnexion = response.getString("dateDerniereConnexion");
-                        sessionManager.insertUser(email, "", nom, prenom, "", isMedecin, "", "", "", dateCreation, dateDerniereConnexion);
+                        sessionManager.insertUser(email, "", nom, prenom, "", isMedecin, "", "", "", "", "avatar.png", dateCreation, dateDerniereConnexion);
 
                         if (isMedecin.equals("1")) {
                             Intent accueilMedecin = new Intent(getApplicationContext(), AccueilMedecin.class);
