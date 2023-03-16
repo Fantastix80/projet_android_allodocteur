@@ -1,520 +1,469 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:backgroundTint="#2FB171">
+    android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="#2FB171">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnFlecheRetour"
+            android:layout_width="40dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="15dp"
+            android:background="#2FB171"
+            android:drawableTop="@drawable/ic_fleche_retour"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Liste des médecins:"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/btnReglage"
+            android:clickable="true"
+            android:layout_marginTop="5dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="end"
+            android:src="@drawable/image_settings"
+            android:background="#2FB171"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginRight="20dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="#2FB171"
-            tools:ignore="MissingConstraints">
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/compte"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginLeft="20dp"
-                    android:text="MON COMPTE"
-                    android:textSize="34sp" />
-
-                <Space
-                    android:id="@+id/space1"
-                    android:layout_width="170dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1" />
-
-                <ImageButton
-                    android:id="@+id/reglage"
-                    android:clickable="true"
-                    android:layout_margin="10dp"
-                    android:layout_width="150dp"
-                    android:layout_height="50dp"
-                    android:layout_weight="1"
-                    android:backgroundTint="#2FB171"
-                    android:scaleType="centerCrop"
-                    app:srcCompat="@drawable/image_roue_crante" />
-
-
-            </LinearLayout>
-
-        </androidx.cardview.widget.CardView>
-
-        <LinearLayout
-            android:id="@+id/layout2"
-            android:layout_width="match_parent"
-            android:layout_height="133dp"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <Space
-                android:id="@+id/space2"
-                android:layout_width="wrap_content"
-                android:layout_height="135dp" />
-
-            <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
-                android:id="@+id/profile_image"
-                android:layout_width="96dp"
-                android:layout_height="96dp"
-                android:src="@drawable/profil_avatar_patient"
-                app:civ_border_color="#FF000000"
-                app:civ_border_width="1dp" />
-
-        </LinearLayout>
-
+        android:orientation="vertical"
+        android:background="#EFF2F6">
 
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <LinearLayout
-                android:id="@+id/ScrollLayout"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/medecin"
+                <LinearLayout
+                    android:id="@+id/layout2"
+                    android:layout_width="match_parent"
+                    android:layout_height="133dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <Space
+                        android:id="@+id/space2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="135dp" />
+
+                    <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                        android:id="@+id/profile_image"
+                        android:layout_width="96dp"
+                        android:layout_height="96dp"
+                        android:src="@drawable/profil_avatar_patient"
+                        app:civ_border_color="#FF000000"
+                        app:civ_border_width="1dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ScrollLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="35dp"
-                    android:layout_marginEnd="10dp"
-                    android:text="Medecin traitant"
-                    android:textColor="#9E9292"
-                    android:textSize="30dp" />
+                    android:orientation="vertical"
+                    android:paddingLeft="30dp"
+                    android:paddingRight="30dp">
 
-                <androidx.cardview.widget.CardView
-                    android:layout_width="347dp"
-                    android:layout_height="150dp"
-                    android:layout_margin="20dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    app:cardBackgroundColor="@color/white"
-                    app:cardCornerRadius="25sp"
-                    app:cardElevation="50dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
-
-                    <LinearLayout
+                    <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="7sp">
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal">
+                            android:orientation="vertical"
+                            android:padding="15dp">
 
                             <TextView
-                                android:id="@+id/MedecinTraitant"
-                                android:layout_width="150dp"
-                                android:layout_height="wrap_content"
-                                android:layout_margin="10dp"
-                                android:hint="nom"
-                                android:textSize="24sp" />
-
-                            <TextView
-                                android:id="@+id/textView7"
-                                android:layout_width="168dp"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="10dp"
-                                android:layout_marginEnd="10dp"
-                                android:layout_marginBottom="10dp"
-                                android:text="Prenom"
-                                android:textSize="24sp" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="98dp"
-                            android:gravity="center"
-                            android:orientation="horizontal"
-                            android:visibility="gone">
-
-                            <ImageView
-                                android:id="@+id/imageView"
-                                android:layout_width="55dp"
-                                android:layout_height="wrap_content"
-                                app:srcCompat="@drawable/image_plus"/>
-
-
-                            <TextView
-                                android:id="@+id/ModifierMedecinTraitant"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="10dp"
-                                android:layout_marginEnd="10dp"
-                                android:layout_marginBottom="10dp"
-                                android:layout_weight="0"
-                                android:text="Modifier médecin traitant "
-                                android:textSize="20sp" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="0"
-                            android:gravity="center"
-                            android:orientation="horizontal"
-                            android:visibility="visible">
-
-                            <de.hdodenhof.circleimageview.CircleImageView
-                                android:id="@+id/buttonAddMedecin"
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
-                                android:src="@drawable/image_plus"
-                                app:civ_border_color="#2FB171"
-                                app:civ_border_width="1dp" />
-
-                            <Space
-                                android:layout_width="26dp"
-                                android:layout_height="wrap_content" />
+                                android:drawableLeft="@drawable/ic_medecin_traitant"
+                                android:drawablePadding="10dp"
+                                android:paddingLeft="-3dp"
+                                android:text="Médecin traitant:"
+                                android:textColor="@color/black"
+                                android:textSize="22dp"
+                                android:textStyle="bold" />
 
                             <TextView
-                                android:id="@+id/PrenomMedecinTraitant"
+                                android:id="@+id/tvPasDeMedecinTraitant"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_margin="10dp"
-                                android:layout_marginTop="10dp"
-                                android:layout_marginEnd="10dp"
-                                android:layout_marginBottom="10dp"
-                                android:layout_weight="0"
-                                android:text="Ajouter un médecin "
-                                android:textSize="24sp" />
+                                android:layout_marginTop="15dp"
+                                android:text="Aucun médecin traitant enregistré"
+                                android:textColor="@color/black"
+                                android:textSize="18dp"
+                                android:visibility="visible" />
+
+                            <androidx.appcompat.widget.AppCompatButton
+                                android:id="@+id/btnAddMedecinTraitant"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="20dp"
+                                android:background="@drawable/rectangleradiuscarre"
+                                android:backgroundTint="#2FB171"
+                                android:drawableLeft="@drawable/image_plus"
+                                android:drawablePadding="10dp"
+                                android:padding="10dp"
+                                android:text="Ajouter un médecin"
+                                android:textColor="@color/white"
+                                android:visibility="visible" />
+
+                            <TextView
+                                android:id="@+id/tvNomEtPrenomMedecinTraitant"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="15dp"
+                                android:text="VAN WITTENBERGE Jean"
+                                android:textColor="@color/black"
+                                android:textSize="18dp"
+                                android:visibility="gone" />
+
+                            <LinearLayout
+                                android:id="@+id/layoutHaveMedecinTraitant"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="20dp"
+                                android:orientation="horizontal"
+                                android:visibility="gone">
+
+                                <androidx.appcompat.widget.AppCompatButton
+                                    android:id="@+id/btnUpdateMedecinTraitant"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginRight="74dp"
+                                    android:background="@drawable/rectangleradiuscarre"
+                                    android:backgroundTint="#ffc107"
+                                    android:drawableLeft="@drawable/image_edit"
+                                    android:drawablePadding="10dp"
+                                    android:padding="10dp"
+                                    android:text="Modifier" />
+
+                                <androidx.appcompat.widget.AppCompatButton
+                                    android:id="@+id/btnDeleteMedecinTraitant"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:background="@drawable/rectangleradiuscarre"
+                                    android:backgroundTint="#dc3545"
+                                    android:drawableLeft="@drawable/image_delete"
+                                    android:drawablePadding="10dp"
+                                    android:padding="10dp"
+                                    android:text="Supprimer"
+                                    android:textColor="@color/white" />
+
+                            </LinearLayout>
+
                         </LinearLayout>
 
+                    </androidx.cardview.widget.CardView>
 
-                    </LinearLayout>
-
-
-                </androidx.cardview.widget.CardView>
-
-                <TextView
-                    android:id="@+id/Identite"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="35dp"
-                    android:layout_marginEnd="10dp"
-                    android:text="Identité"
-                    android:textColor="#9E9292"
-                    android:textSize="30dp" />
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="347dp"
-                    android:layout_height="327dp"
-                    android:layout_margin="20dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    app:cardBackgroundColor="@color/white"
-                    app:cardCornerRadius="25sp"
-                    app:cardElevation="50dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
-
-
-                    <LinearLayout
-                        android:id="@+id/LayoutId"
+                    <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        android:layout_marginTop="15dp"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="7sp">
 
                         <LinearLayout
-                            android:id="@+id/LayoutPrenom"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:orientation="horizontal">
+                            android:orientation="vertical"
+                            android:padding="15dp">
 
                             <TextView
-                                android:id="@+id/Prenom"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_margin="10dp"
-                                android:layout_weight="0"
-                                android:text="Prénom : "
-                                android:textSize="24sp" />
+                                android:drawableLeft="@drawable/ic_person"
+                                android:drawablePadding="10dp"
+                                android:paddingLeft="-5dp"
+                                android:text="Identité:"
+                                android:textColor="@color/black"
+                                android:textSize="22dp"
+                                android:textStyle="bold" />
 
-                            <TextView
-                                android:id="@+id/PrenomDef"
-                                android:layout_width="wrap_content"
+                            <LinearLayout
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="10dp"
-                                android:layout_marginEnd="10dp"
-                                android:layout_marginBottom="10dp"
-                                android:layout_weight="1"
-                                android:text="coucou"
-                                android:textSize="24sp" />
+                                android:layout_marginTop="15dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Prénom:"
+                                    android:textColor="@color/black"
+                                    android:textSize="18dp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/tvPrenom"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="10dp"
+                                    android:text="Jean"
+                                    android:textColor="@color/black"
+                                    android:textSize="18dp" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="15dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Nom:"
+                                    android:textColor="@color/black"
+                                    android:textSize="18dp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/tvNom"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="10dp"
+                                    android:text="VAN WITTENBERGE"
+                                    android:textColor="@color/black"
+                                    android:textSize="18dp" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="15dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Date de naissance:"
+                                    android:textColor="@color/black"
+                                    android:textSize="18dp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/tvDateNaissance"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="10dp"
+                                    android:text="22/03/2002"
+                                    android:textColor="@color/black"
+                                    android:textSize="18dp" />
+
+                            </LinearLayout>
 
                         </LinearLayout>
 
-                        <LinearLayout
-                            android:id="@+id/LayoutNom"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:orientation="horizontal">
+                    </androidx.cardview.widget.CardView>
 
-                            <TextView
-                                android:id="@+id/Nom"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_margin="10dp"
-                                android:layout_weight="0"
-                                android:text="Nom :"
-                                android:textSize="24sp" />
-
-                            <TextView
-                                android:id="@+id/NomDef"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="10dp"
-                                android:layout_marginEnd="10dp"
-                                android:layout_marginBottom="10dp"
-                                android:layout_weight="1"
-                                android:text="coucou"
-                                android:textSize="24sp" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:id="@+id/LayoutAnniv"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:id="@+id/DateNaissance"
-                                android:layout_width="159dp"
-                                android:layout_height="wrap_content"
-                                android:layout_margin="10dp"
-                                android:layout_weight="0"
-                                android:text="Date de naissance :"
-                                android:textSize="24sp" />
-
-                            <TextView
-                                android:id="@+id/DateNaissanceDef"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="10dp"
-                                android:layout_marginEnd="10dp"
-                                android:layout_marginBottom="10dp"
-                                android:layout_weight="1"
-                                android:text=""
-                                android:textSize="24sp" />
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:id="@+id/LayoutNaissance"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:id="@+id/LieuNaissance"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_margin="10dp"
-                                android:layout_weight="0"
-                                android:text="Lieu de naissance :"
-                                android:textSize="24sp" />
-
-                            <TextView
-                                android:id="@+id/LieuNaissanceDef"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="10dp"
-                                android:layout_marginEnd="10dp"
-                                android:layout_marginBottom="10dp"
-                                android:layout_weight="1"
-                                android:text=""
-                                android:textSize="24sp" />
-
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:id="@+id/LayoutAdresse"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:id="@+id/Adresse"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_margin="10dp"
-                                android:layout_weight="0"
-                                android:text="Adresse :"
-                                android:textSize="24sp" />
-
-                            <TextView
-                                android:id="@+id/AdresseDef"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="10dp"
-                                android:layout_marginEnd="10dp"
-                                android:layout_marginBottom="10dp"
-                                android:text="Rue..."
-                                android:textSize="24sp" />
-                        </LinearLayout>
-                    </LinearLayout>
-
-                </androidx.cardview.widget.CardView>
-
-                <TextView
-                    android:id="@+id/Coordonnee"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="35dp"
-                    android:layout_marginEnd="10dp"
-                    android:text="Coordonée"
-                    android:textColor="#9E9292"
-                    android:textSize="30sp" />
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="191dp"
-                    android:layout_margin="20dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    app:cardBackgroundColor="@color/white"
-                    app:cardCornerRadius="25sp"
-                    app:cardElevation="50dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
-
-
-                    <LinearLayout
-                        android:id="@+id/LayoutCoor"
+                    <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical">
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="7sp">
 
                         <LinearLayout
-                            android:id="@+id/LayoutTel"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:orientation="horizontal">
+                            android:orientation="vertical"
+                            android:padding="15dp">
 
                             <TextView
-                                android:id="@+id/Tel"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_margin="10dp"
-                                android:layout_weight="0"
-                                android:text="Télephone : "
-                                android:textSize="24sp" />
+                                android:drawableLeft="@drawable/ic_email"
+                                android:drawablePadding="10dp"
+                                android:paddingLeft="-5dp"
+                                android:text="Coordonées:"
+                                android:textColor="@color/black"
+                                android:textSize="22dp"
+                                android:textStyle="bold" />
 
-                            <TextView
-                                android:id="@+id/TelDef"
-                                android:layout_width="wrap_content"
+                            <LinearLayout
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="10dp"
-                                android:layout_marginEnd="10dp"
-                                android:layout_marginBottom="10dp"
-                                android:layout_weight="1"
-                                android:text="00 00 00 00 00"
-                                android:textSize="24sp" />
+                                android:layout_marginTop="15dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Adresse:"
+                                    android:textColor="@color/black"
+                                    android:textSize="18dp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/tvAdresse"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="10dp"
+                                    android:text="11Bis Avenue de Madrid"
+                                    android:textColor="@color/black"
+                                    android:textSize="18dp" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="15dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Code postal:"
+                                    android:textColor="@color/black"
+                                    android:textSize="18dp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/tvCodePostal"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="10dp"
+                                    android:text="92200"
+                                    android:textColor="@color/black"
+                                    android:textSize="18dp" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="15dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Ville:"
+                                    android:textColor="@color/black"
+                                    android:textSize="18dp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/tvVille"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="10dp"
+                                    android:text="Neuilly-Sur-Seine"
+                                    android:textColor="@color/black"
+                                    android:textSize="18dp" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="15dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Téléphone:"
+                                    android:textColor="@color/black"
+                                    android:textSize="18dp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/tvTelephone"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="10dp"
+                                    android:text="06 69 74 35 10"
+                                    android:textColor="@color/black"
+                                    android:textSize="18dp" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="15dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Email:"
+                                    android:textColor="@color/black"
+                                    android:textSize="18dp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/tvEmail"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="10dp"
+                                    android:text="jeanvw007@gmail.com"
+                                    android:textColor="@color/black"
+                                    android:textSize="18dp" />
+
+                            </LinearLayout>
 
                         </LinearLayout>
 
-                        <LinearLayout
-                            android:id="@+id/LayoutMail"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:orientation="horizontal">
+                    </androidx.cardview.widget.CardView>
 
-                            <TextView
-                                android:id="@+id/Mail"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_margin="10dp"
-                                android:layout_weight="0"
-                                android:text="Mail :"
-                                android:textSize="24sp" />
+                    <Button
+                        android:id="@+id/btnDisconnect"
+                        android:layout_width="match_parent"
+                        android:layout_height="65dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="15dp"
+                        android:backgroundTint="#dc3545"
+                        android:drawableLeft="@drawable/image_logout"
+                        android:text="Déconnexion" />
 
-                            <TextView
-                                android:id="@+id/MailDef"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="10dp"
-                                android:layout_marginEnd="10dp"
-                                android:layout_marginBottom="10dp"
-                                android:layout_weight="1"
-                                android:text=""
-                                android:textSize="24sp" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:id="@+id/LayoutMdp"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:id="@+id/Mdp"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_margin="10dp"
-                                android:layout_weight="0"
-                                android:text="Mot de passe :"
-                                android:textSize="24sp" />
-
-                            <TextView
-                                android:id="@+id/mdpDef"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="10dp"
-                                android:layout_marginEnd="10dp"
-                                android:layout_marginBottom="10dp"
-                                android:layout_weight="1"
-                                android:text=""
-                                android:textSize="24sp" />
-
-                        </LinearLayout>
-
-
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-
-                <Button
-                    android:id="@+id/btnDisconnect"
-                    android:layout_width="match_parent"
-                    android:layout_height="65dp"
-                    android:backgroundTint="#E10000"
-                    android:text="Déconnexion" />
-
+                </LinearLayout>
             </LinearLayout>
         </ScrollView>
 
     </LinearLayout>
 
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
