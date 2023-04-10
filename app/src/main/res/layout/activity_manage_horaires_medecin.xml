@@ -1,0 +1,518 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#EFF2F6"
+    tools:context=".profil.ManageHorairesMedecin">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="#2FB171">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="MODIFIER VOS HORAIRES"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/btnCancel"
+            android:clickable="true"
+            android:layout_marginTop="5dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="end"
+            android:src="@drawable/ic_menu_close_clear_cancel"
+            android:background="#2FB171"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginRight="20dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="25dp">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="7sp">
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="1"
+                android:rowCount="8"
+                android:paddingVertical="20dp"
+                android:paddingHorizontal="10dp">
+                
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Durée d'une séance (en minute):"
+                        android:textColor="@color/black"
+                        android:textSize="17sp"
+                        android:textStyle="bold"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginBottom="10dp"/>
+                    
+                    <EditText
+                        android:id="@+id/etDuree"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:hint="60"
+                        android:inputType="number"/>
+                    
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:id="@+id/cbLundi"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"></CheckBox>
+
+                    <TextView
+                        android:layout_width="77dp"
+                        android:layout_height="wrap_content"
+                        android:text="Lundi"
+                        android:textColor="@color/black"
+                        android:textSize="17sp"></TextView>
+
+                    <EditText
+                        android:id="@+id/etLundiMatinDebut"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:hint="08:00"
+                        android:textSize="13sp"
+                        android:enabled="false"
+                        android:inputType="time"/>
+
+                    <EditText
+                        android:id="@+id/etLundiMatinFin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:hint="12:00"
+                        android:textSize="13sp"
+                        android:enabled="false"
+                        android:inputType="time"/>
+
+                    <EditText
+                        android:id="@+id/etLundiApremDebut"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:hint="13:00"
+                        android:textSize="13sp"
+                        android:enabled="false"
+                        android:inputType="time"/>
+
+                    <EditText
+                        android:id="@+id/etLundiApremFin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:hint="17:00"
+                        android:textSize="13sp"
+                        android:enabled="false"
+                        android:inputType="time"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/cbMardi"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"></CheckBox>
+
+                    <TextView
+                        android:layout_width="77dp"
+                        android:layout_height="wrap_content"
+                        android:text="Mardi"
+                        android:textColor="@color/black"
+                        android:textSize="17sp"></TextView>
+
+                    <EditText
+                        android:id="@+id/etMardiMatinDebut"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:hint="08:30"
+                        android:textSize="13sp"
+                        android:enabled="false"
+                        android:inputType="time"/>
+
+                    <EditText
+                        android:id="@+id/etMardiMatinFin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:hint="12:00"
+                        android:textSize="13sp"
+                        android:enabled="false"
+                        android:inputType="time"/>
+
+                    <EditText
+                        android:id="@+id/etMardiApremDebut"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:hint="13:30"
+                        android:textSize="13sp"
+                        android:enabled="false"
+                        android:inputType="time"/>
+
+                    <EditText
+                        android:id="@+id/etMardiApremFin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:hint="17:30"
+                        android:textSize="13sp"
+                        android:enabled="false"
+                        android:inputType="time"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/cbMercredi"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"></CheckBox>
+
+                    <TextView
+                        android:layout_width="77dp"
+                        android:layout_height="wrap_content"
+                        android:text="Mercredi"
+                        android:textColor="@color/black"
+                        android:textSize="17sp"></TextView>
+
+                    <EditText
+                        android:id="@+id/etMercrediMatinDebut"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:hint="10:00"
+                        android:textSize="13sp"
+                        android:enabled="false"
+                        android:inputType="time"/>
+
+                    <EditText
+                        android:id="@+id/etMercrediMatinFin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:hint="13:00"
+                        android:textSize="13sp"
+                        android:enabled="false"
+                        android:inputType="time"/>
+
+                    <EditText
+                        android:id="@+id/etMercrediApremDebut"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:hint=""
+                        android:textSize="13sp"
+                        android:enabled="false"
+                        android:inputType="time"/>
+
+                    <EditText
+                        android:id="@+id/etMercrediApremFin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:hint=""
+                        android:textSize="13sp"
+                        android:enabled="false"
+                        android:inputType="time">
+
+                    </EditText>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/cbJeudi"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"></CheckBox>
+
+                    <TextView
+                        android:layout_width="77dp"
+                        android:layout_height="wrap_content"
+                        android:text="Jeudi"
+                        android:textColor="@color/black"
+                        android:textSize="17sp"></TextView>
+
+                    <EditText
+                        android:id="@+id/etJeudiMatinDebut"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:hint=""
+                        android:textSize="13sp"
+                        android:enabled="false"
+                        android:inputType="time"/>
+
+                    <EditText
+                        android:id="@+id/etJeudiMatinFin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:hint=""
+                        android:textSize="13sp"
+                        android:enabled="false"
+                        android:inputType="time"/>
+
+                    <EditText
+                        android:id="@+id/etJeudiApremDebut"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:hint="14:00"
+                        android:textSize="13sp"
+                        android:enabled="false"
+                        android:inputType="time"/>
+
+                    <EditText
+                        android:id="@+id/etJeudiApremFin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:hint="18:00"
+                        android:textSize="13sp"
+                        android:enabled="false"
+                        android:inputType="time"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/cbVendredi"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"></CheckBox>
+
+                    <TextView
+                        android:layout_width="77dp"
+                        android:layout_height="wrap_content"
+                        android:text="Vendredi"
+                        android:textColor="@color/black"
+                        android:textSize="17sp"></TextView>
+
+                    <EditText
+                        android:id="@+id/etVendrediMatinDebut"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:hint="10:00"
+                        android:textSize="13sp"
+                        android:enabled="false"
+                        android:inputType="time"/>
+
+                    <EditText
+                        android:id="@+id/etVendrediMatinFin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:hint=""
+                        android:textSize="13sp"
+                        android:enabled="false"
+                        android:inputType="time"/>
+
+                    <EditText
+                        android:id="@+id/etVendrediApremDebut"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:hint=""
+                        android:textSize="13sp"
+                        android:enabled="false"
+                        android:inputType="time"/>
+
+                    <EditText
+                        android:id="@+id/etVendrediApremFin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:hint="18:00"
+                        android:textSize="13sp"
+                        android:enabled="false"
+                        android:inputType="time"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/cbSamedi"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"></CheckBox>
+
+                    <TextView
+                        android:layout_width="77dp"
+                        android:layout_height="wrap_content"
+                        android:text="Samedi"
+                        android:textColor="@color/black"
+                        android:textSize="17sp"></TextView>
+
+                    <EditText
+                        android:id="@+id/etSamediMatinDebut"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:hint="10:00"
+                        android:textSize="13sp"
+                        android:enabled="false"
+                        android:inputType="time"/>
+
+                    <EditText
+                        android:id="@+id/etSamediMatinFin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:hint="12:00"
+                        android:textSize="13sp"
+                        android:enabled="false"
+                        android:inputType="time"/>
+
+                    <EditText
+                        android:id="@+id/etSamediApremDebut"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:hint=""
+                        android:textSize="13sp"
+                        android:enabled="false"
+                        android:inputType="time"/>
+
+                    <EditText
+                        android:id="@+id/etSamediApremFin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:hint=""
+                        android:textSize="13sp"
+                        android:enabled="false"
+                        android:inputType="time"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/cbDimanche"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"></CheckBox>
+
+                    <TextView
+                        android:layout_width="77dp"
+                        android:layout_height="wrap_content"
+                        android:text="Dimanche"
+                        android:textColor="@color/black"
+                        android:textSize="17sp"></TextView>
+
+                    <EditText
+                        android:id="@+id/etDimancheMatinDebut"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:hint="10:00"
+                        android:textSize="13sp"
+                        android:enabled="false"
+                        android:inputType="time"/>
+
+                    <EditText
+                        android:id="@+id/etDimancheMatinFin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:hint="12:00"
+                        android:textSize="13sp"
+                        android:enabled="false"
+                        android:inputType="time"/>
+
+                    <EditText
+                        android:id="@+id/etDimancheApremDebut"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:hint=""
+                        android:textSize="13sp"
+                        android:enabled="false"
+                        android:inputType="time"/>
+
+                    <EditText
+                        android:id="@+id/etDimancheApremFin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:hint=""
+                        android:textSize="13sp"
+                        android:enabled="false"
+                        android:inputType="time"/>
+
+                </LinearLayout>
+            </GridLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <Button
+            android:id="@+id/btnEnregistrer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="20dp"
+            android:backgroundTint="#3F45FC"
+            android:text="ENREGISTER MODIFICATIONS"
+            android:padding="10dp"
+            android:textSize="20dp"/>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="15dp"/>
+
+    </LinearLayout>
+
+</LinearLayout>

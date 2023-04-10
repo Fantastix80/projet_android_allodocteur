@@ -1,0 +1,665 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="#2FB171">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnFlecheRetour"
+            android:layout_width="40dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="15dp"
+            android:background="#2FB171"
+            android:drawableTop="@drawable/ic_fleche_retour"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Liste des médecins:"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/btnReglage"
+            android:clickable="true"
+            android:layout_marginTop="5dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="end"
+            android:src="@drawable/image_settings"
+            android:background="#2FB171"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginRight="20dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#EFF2F6">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/layout2"
+                    android:layout_width="match_parent"
+                    android:layout_height="133dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <Space
+                        android:id="@+id/space2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="135dp" />
+
+                    <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                        android:id="@+id/profile_image"
+                        android:layout_width="96dp"
+                        android:layout_height="96dp"
+                        android:src="@drawable/profil_avatar_patient"
+                        app:civ_border_color="#FF000000"
+                        app:civ_border_width="1dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ScrollLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingLeft="30dp"
+                    android:paddingRight="30dp">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="7sp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="15dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:drawableLeft="@drawable/ic_medecin_traitant"
+                                android:drawablePadding="10dp"
+                                android:paddingLeft="-3dp"
+                                android:text="Mes horaires:"
+                                android:textColor="@color/black"
+                                android:textSize="22dp"
+                                android:textStyle="bold"/>
+
+                            <TextView
+                                android:id="@+id/tvPasHoraire"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="15dp"
+                                android:text="Vous n'avez pas d'horaires de travail d'enregistré."
+                                android:textColor="@color/black"
+                                android:textSize="18dp"
+                                android:visibility="visible"/>
+
+                            <androidx.appcompat.widget.AppCompatButton
+                                android:id="@+id/btnAddHoraires"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="20dp"
+                                android:background="@drawable/rectangleradiuscarre"
+                                android:backgroundTint="#2FB171"
+                                android:drawableLeft="@drawable/image_plus"
+                                android:drawablePadding="10dp"
+                                android:padding="10dp"
+                                android:text="Ajouter horaire"
+                                android:textColor="@color/white"
+                                android:visibility="visible"/>
+
+                            <LinearLayout
+                                android:id="@+id/layoutDuree"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="15dp"
+                                android:orientation="horizontal"
+                                android:visibility="gone">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Durée d'une consultation :"
+                                    android:textColor="@color/black"
+                                    android:textSize="18dp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/tvHoraire"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="10dp"
+                                    android:text="Durée"
+                                    android:textColor="@color/black"
+                                    android:textSize="18dp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/layoutJourTravail"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:visibility="gone">
+                                <LinearLayout
+                                    android:id="@+id/layoutLundi"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="15dp"
+                                    android:orientation="horizontal"
+                                    android:visibility="gone">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Lundi:"
+                                        android:textColor="@color/black"
+                                        android:textSize="18dp"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:id="@+id/tvLundi"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="10dp"
+                                        android:text="10h-12h | 13h-18h"
+                                        android:textColor="@color/black"
+                                        android:textSize="18dp" />
+
+                                </LinearLayout>
+                                <LinearLayout
+                                    android:id="@+id/layoutMardi"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="15dp"
+                                    android:orientation="horizontal"
+                                    android:visibility="gone">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Mardi:"
+                                        android:textColor="@color/black"
+                                        android:textSize="18dp"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:id="@+id/tvMardi"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="10dp"
+                                        android:text="10h-12h | 13h-18h"
+                                        android:textColor="@color/black"
+                                        android:textSize="18dp" />
+
+                                </LinearLayout>
+                                <LinearLayout
+                                    android:id="@+id/layoutMercredi"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="15dp"
+                                    android:orientation="horizontal"
+                                    android:visibility="gone">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Mercredi:"
+                                        android:textColor="@color/black"
+                                        android:textSize="18dp"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:id="@+id/tvMercredi"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="10dp"
+                                        android:text="10h-12h | 13h-18h"
+                                        android:textColor="@color/black"
+                                        android:textSize="18dp" />
+
+                                </LinearLayout>
+                                <LinearLayout
+                                    android:id="@+id/layoutJeudi"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="15dp"
+                                    android:orientation="horizontal"
+                                    android:visibility="gone">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Jeudi:"
+                                        android:textColor="@color/black"
+                                        android:textSize="18dp"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:id="@+id/tvJeudi"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="10dp"
+                                        android:text="10h-12h | 13h-18h"
+                                        android:textColor="@color/black"
+                                        android:textSize="18dp" />
+                                </LinearLayout>
+                                <LinearLayout
+                                    android:id="@+id/layoutVendredi"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="15dp"
+                                    android:orientation="horizontal"
+                                    android:visibility="gone">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Vendredi:"
+                                        android:textColor="@color/black"
+                                        android:textSize="18dp"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:id="@+id/tvVendredi"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="10dp"
+                                        android:text="10h-12h | 13h-18h"
+                                        android:textColor="@color/black"
+                                        android:textSize="18dp" />
+                                </LinearLayout>
+                                <LinearLayout
+                                    android:id="@+id/layoutSemedi"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="15dp"
+                                    android:orientation="horizontal"
+                                    android:visibility="gone">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Samedi:"
+                                        android:textColor="@color/black"
+                                        android:textSize="18dp"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:id="@+id/tvSamedi"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="10dp"
+                                        android:text="10h-12h | 13h-18h"
+                                        android:textColor="@color/black"
+                                        android:textSize="18dp" />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/layoutDimanche"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="15dp"
+                                    android:orientation="horizontal"
+                                    android:visibility="gone">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Dimanche:"
+                                        android:textColor="@color/black"
+                                        android:textSize="18dp"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:id="@+id/tvDimanche"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="10dp"
+                                        android:text="10h-12h | 13h-18h"
+                                        android:textColor="@color/black"
+                                        android:textSize="18dp" />
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+                            <LinearLayout
+                                android:id="@+id/layoutHaveHoraires"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="20dp"
+                                android:orientation="horizontal"
+                                android:visibility="gone">
+
+                                <androidx.appcompat.widget.AppCompatButton
+                                    android:id="@+id/btnUpdateHoraires"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginRight="71dp"
+                                    android:background="@drawable/rectangleradiuscarre"
+                                    android:backgroundTint="#ffc107"
+                                    android:drawableLeft="@drawable/image_edit"
+                                    android:drawablePadding="10dp"
+                                    android:padding="10dp"
+                                    android:text="Modifier" />
+
+                                <androidx.appcompat.widget.AppCompatButton
+                                    android:id="@+id/btnDeleteHoraires"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:background="@drawable/rectangleradiuscarre"
+                                    android:backgroundTint="#dc3545"
+                                    android:drawableLeft="@drawable/image_delete"
+                                    android:drawablePadding="10dp"
+                                    android:padding="10dp"
+                                    android:text="Supprimer"
+                                    android:textColor="@color/white" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="7sp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="15dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:drawableLeft="@drawable/ic_person"
+                                android:drawablePadding="10dp"
+                                android:paddingLeft="-5dp"
+                                android:text="Présentation:"
+                                android:textColor="@color/black"
+                                android:textSize="22dp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tvPresentation"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="18dp"
+                                android:text="Coucou, ici ya une textView"
+                                android:layout_marginLeft="10dp"
+                                android:textColor="@color/black" />
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="7sp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="15dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:drawableLeft="@drawable/ic_email"
+                                android:drawablePadding="10dp"
+                                android:paddingLeft="-5dp"
+                                android:text="Info Medecin:"
+                                android:textColor="@color/black"
+                                android:textSize="22dp"
+                                android:textStyle="bold" />
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="15dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Spécialité:"
+                                    android:textColor="@color/black"
+                                    android:textSize="18dp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/tvSpecialite"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="10dp"
+                                    android:text="Généraliste"
+                                    android:textColor="@color/black"
+                                    android:textSize="18dp" />
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="15dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Prix:"
+                                    android:textColor="@color/black"
+                                    android:textSize="18dp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/tvPrix"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="10dp"
+                                    android:text="Prix en €"
+                                    android:textColor="@color/black"
+                                    android:textSize="18dp" />
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="15dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Moyens de paiement:"
+                                    android:textColor="@color/black"
+                                    android:textSize="18dp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/tvMoyensDePaiement"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="10dp"
+                                    android:text="Chèque/Espece/CB"
+                                    android:textColor="@color/black"
+                                    android:textSize="18dp" />
+                            </LinearLayout>
+
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="7sp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="15dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:drawableLeft="@drawable/ic_email"
+                                android:drawablePadding="10dp"
+                                android:paddingLeft="-5dp"
+                                android:text="Coordonées:"
+                                android:textColor="@color/black"
+                                android:textSize="22dp"
+                                android:textStyle="bold" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="15dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Adresse:"
+                                    android:textColor="@color/black"
+                                    android:textSize="18dp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/tvAdresse"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="10dp"
+                                    android:text="11Bis Avenue"
+                                    android:textColor="@color/black"
+                                    android:textSize="18dp" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="15dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Code postal:"
+                                    android:textColor="@color/black"
+                                    android:textSize="18dp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/tvCodePostal"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="10dp"
+                                    android:text="922"
+                                    android:textColor="@color/black"
+                                    android:textSize="18dp" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="15dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Ville:"
+                                    android:textColor="@color/black"
+                                    android:textSize="18dp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/tvVille"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="10dp"
+                                    android:text="Neuilly"
+                                    android:textColor="@color/black"
+                                    android:textSize="18dp" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <Button
+                        android:id="@+id/btnDisconnect"
+                        android:layout_width="match_parent"
+                        android:layout_height="65dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="15dp"
+                        android:backgroundTint="#dc3545"
+                        android:drawableLeft="@drawable/image_logout"
+                        android:text="Déconnexion" />
+
+                    <Button
+                        android:id="@+id/btnDeleteAccount"
+                        android:layout_width="match_parent"
+                        android:layout_height="65dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="15dp"
+                        android:backgroundTint="#dc3545"
+                        android:drawableLeft="@drawable/image_warning"
+                        android:drawableRight="@drawable/image_warning"
+                        android:text="Supprimer mon compte" />
+
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+
+</LinearLayout>
